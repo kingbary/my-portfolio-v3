@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { IconArrow } from './Icons';
+import Link from 'next/link';
 
 const Cursor = () => <span className="cursor">█</span>;
 
@@ -93,7 +94,7 @@ function HeroTerminal() {
             {step >= 4 && (
               <div className="term-out term-hello">
                 <span className="accent">→</span> hey, i&apos;m kingsley.{' '}
-                <a href="#work">see my work ↓</a>
+                <Link href="#work">see my work ↓</Link>
               </div>
             )}
             <div className="prompt-live">
@@ -175,12 +176,12 @@ function HeroSplit() {
           still curious.
         </p>
         <div className="split-ctas">
-          <a href="#work" className="btn-primary">
+          <Link href="#work" className="btn-primary">
             view selected work <IconArrow size={14} />
-          </a>
-          <a href="#contact" className="btn-ghost">
+          </Link>
+          <Link href="#contact" className="btn-ghost">
             get in touch
-          </a>
+          </Link>
         </div>
       </div>
       <div className="split-right">
