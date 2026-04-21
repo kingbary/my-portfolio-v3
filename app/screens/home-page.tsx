@@ -34,7 +34,7 @@ const DEFAULT_TWEAKS: TweakState = {
     theme: 'dark',
 };
 
-export default function HomeScreen({ git }: { git: { branch: string; lastCommit: string; commitHash: string; commitMessage: string; repoUrl: string } }) {
+export default function HomeScreen({ git }: { git: { branch: string; commitDate: string; commitHash: string; commitMessage: string; repoUrl: string } }) {
     const [tweaks, setTweaks] = React.useState<TweakState>(DEFAULT_TWEAKS);
     const [tweaksOpen, setTweaksOpen] = React.useState(false);
     const [cmdOpen, setCmdOpen] = React.useState(false);

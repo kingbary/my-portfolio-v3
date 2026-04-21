@@ -3,14 +3,24 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-export default function Footer({ branch, lastCommit, commitHash, commitMessage, repoUrl }: {
+function timeAgo(iso: string): string {
+  if (!iso) return 'unknown';
+  const secs = Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
+  if (secs < 60) return `${secs}s ago`;
+  if (secs < 3600) return `${Math.floor(secs / 60)}m ago`;
+  if (secs < 86400) return `${Math.floor(secs / 3600)}h ago`;
+  return `${Math.floor(secs / 86400)}d ago`;
+}
+
+export default function Footer({ branch, commitDate, commitHash, commitMessage, repoUrl }: {
   branch: string;
-  lastCommit: string;
+  commitDate: string;
   commitHash: string;
   commitMessage: string;
   repoUrl: string;
 }) {
   const [time, setTime] = useState('');
+  const [lastCommit, setLastCommit] = useState('');
 
   useEffect(() => {
     const tick = () => {
@@ -19,11 +29,12 @@ export default function Footer({ branch, lastCommit, commitHash, commitMessage, 
       const mm = String(d.getUTCMinutes()).padStart(2, '0');
       const ss = String(d.getUTCSeconds()).padStart(2, '0');
       setTime(`${hh}:${mm}:${ss}`);
+      setLastCommit(timeAgo(commitDate));
     };
     tick();
     const iv = setInterval(tick, 1000);
     return () => clearInterval(iv);
-  }, []);
+  }, [commitDate]);
 
   return (
     <footer className="footer">
