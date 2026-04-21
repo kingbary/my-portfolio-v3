@@ -1,6 +1,7 @@
 import SectionHeader from './section-header';
 import { IconFile } from './Icons';
 import { RESUME } from '../data/data';
+import Link from 'next/link';
 
 export default function Resume() {
   return (
@@ -28,9 +29,9 @@ export default function Resume() {
             </div>
           ))}
         </div>
-        <a href="/resume.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">
+        <Link href="/resume.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">
           <IconFile size={14} /> download full resume (pdf)
-        </a>
+        </Link>
       </div>
     </section>
   );
