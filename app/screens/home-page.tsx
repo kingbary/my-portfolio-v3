@@ -26,7 +26,7 @@ const ACCENT_MAP: Record<string, string> = {
 };
 
 const DEFAULT_TWEAKS: TweakState = {
-    hero: 'big',
+    hero: 'split',
     card: 'ascii',
     density: 'cozy',
     accent: 'lime',
