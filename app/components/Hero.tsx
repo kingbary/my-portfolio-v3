@@ -160,7 +160,7 @@ function HeroBig() {
 
 function HeroSplit() {
   return (
-    <section className="hero hero-split shell" id="home">
+    <section className="hero-split shell" id="home">
       <div className="split-left">
         {/* <div className="split-badge">
           <span className="pulse" /> online · accepting work for Q3 2026

@@ -95,21 +95,9 @@ export default function HomeScreen({ git }: { git: { branch: string; commitDate:
 
             {/* Tweaks toggle button */}
             <button
+                className="tweaks-toggle"
                 onClick={() => setTweaksOpen((v) => !v)}
-                style={{
-                    position: 'fixed',
-                    bottom: tweaksOpen ? '320px' : '24px',
-                    right: '24px',
-                    zIndex: 96,
-                    background: 'var(--bg-2)',
-                    border: '1px solid var(--border-strong)',
-                    borderRadius: '2px',
-                    padding: '6px 10px',
-                    fontSize: '11px',
-                    color: 'var(--fg-dim)',
-                    letterSpacing: '.08em',
-                    transition: 'bottom .2s',
-                }}
+                style={{ bottom: tweaksOpen ? '320px' : '24px' }}
                 title="Press T to toggle"
             >
                 {tweaksOpen ? '✕ close' : '⚙ tweaks'}

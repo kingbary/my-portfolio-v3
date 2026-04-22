@@ -12,7 +12,7 @@ function timeAgo(iso: string): string {
   return `${Math.floor(secs / 86400)}d ago`;
 }
 
-export default function Footer({ branch, commitDate, commitHash, commitMessage, repoUrl }: {
+export default function Footer({ branch, commitDate, commitHash, repoUrl }: {
   branch: string;
   commitDate: string;
   commitHash: string;
@@ -67,21 +67,20 @@ export default function Footer({ branch, commitDate, commitHash, commitMessage, 
       </div>
       <div className="status-bar">
         <span>● {branch}</span>
-        <span className="dim">last commit: {lastCommit}</span>
+        <span className="dim sb-hide">last commit: {lastCommit}</span>
         {commitHash && (
-          <Link href={`${repoUrl}/commit/${commitHash}`} target="_blank" rel="noopener noreferrer" className="dim">
+          <Link href={`${repoUrl}/commit/${commitHash}`} target="_blank" rel="noopener noreferrer" className="dim sb-hide">
             {commitHash}
           </Link>
         )}
-        {/* {commitMessage && <span className="dim">— {commitMessage}</span>} */}
-        <span className="dim">·</span>
+        <span className="dim sb-hide">·</span>
         <span>© {new Date().getFullYear()} kingsley akwa</span>
-        <span className="dim">·</span>
-        <span>handcrafted in neovim</span>
+        <span className="dim sb-hide">·</span>
+        <span className="sb-hide">handcrafted in neovim</span>
         <span className="fill" />
-        <span>UTF-8</span>
-        <span className="dim">·</span>
-        <span>LF</span>
+        <span className="sb-hide">UTF-8</span>
+        <span className="dim sb-hide">·</span>
+        <span className="sb-hide">LF</span>
       </div>
     </footer>
   );
