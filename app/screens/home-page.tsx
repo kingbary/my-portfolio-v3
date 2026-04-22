@@ -50,6 +50,26 @@ export default function HomeScreen({ git }: { git: { branch: string; commitDate:
     const [cmdOpen, setCmdOpen] = React.useState(false);
     const [activeProject, setActiveProject] = React.useState<Project | null>(null);
 
+    // Declared before the load effect so it skips on the first render (saveReady is
+    // still false), preventing DEFAULT_TWEAKS from overwriting stored values before
+    // they've been read.
+    const saveReady = React.useRef(false);
+    React.useEffect(() => {
+        if (!saveReady.current) return;
+        try {
+            localStorage.setItem('portfolio-tweaks', JSON.stringify(tweaks));
+        } catch {}
+    }, [tweaks]);
+
+    // Load persisted tweaks once on mount, then arm the save effect.
+    React.useEffect(() => {
+        try {
+            const raw = localStorage.getItem('portfolio-tweaks');
+            if (raw) setTweaks(prev => ({ ...prev, ...(JSON.parse(raw) as Partial<TweakState>) }));
+        } catch {}
+        saveReady.current = true;
+    }, []);
+
     // Apply tweaks to <body> and <html>
     React.useEffect(() => {
         const body = document.body;
