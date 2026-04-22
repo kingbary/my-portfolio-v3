@@ -25,6 +25,16 @@ const ACCENT_MAP: Record<string, string> = {
     mono: '245 245 240',
 };
 
+// Darker variants for light mode — all ≥5:1 contrast against #f3f1e8
+const ACCENT_MAP_LIGHT: Record<string, string> = {
+    lime: '61 106 8',
+    amber: '146 64 14',
+    coral: '185 28 28',
+    cyan: '21 94 117',
+    violet: '109 40 217',
+    mono: '61 59 53',
+};
+
 const DEFAULT_TWEAKS: TweakState = {
     hero: 'split',
     card: 'ascii',
@@ -51,8 +61,9 @@ export default function HomeScreen({ git }: { git: { branch: string; commitDate:
         body.classList.toggle('tight', tweaks.density === 'tight');
         // Scanlines
         body.classList.toggle('scanlines', tweaks.scanlines === 'on');
-        // Accent CSS var
-        root.style.setProperty('--accent', ACCENT_MAP[tweaks.accent] ?? ACCENT_MAP.lime);
+        // Accent CSS var — use darker variants in light mode for contrast
+        const map = tweaks.theme === 'light' ? ACCENT_MAP_LIGHT : ACCENT_MAP;
+        root.style.setProperty('--accent', map[tweaks.accent] ?? map.lime);
     }, [tweaks]);
 
     // Keyboard shortcut: ⌘K or Ctrl+K
