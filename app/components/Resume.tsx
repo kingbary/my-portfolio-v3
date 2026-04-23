@@ -11,7 +11,7 @@ export default function Resume() {
           tag="05"
           cmd="git log --oneline career"
           title="resume"
-          sub="ten years, four companies, a lot of post-mortems."
+          sub="five years, four companies, a lot of post-mortems."
         />
         <div className="resume-list">
           {RESUME.map((r, i) => (

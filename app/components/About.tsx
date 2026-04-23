@@ -8,38 +8,37 @@ export default function About() {
         <div className="about-grid">
           <div className="about-copy">
             <p>
-              I&apos;m Kingsley. I&apos;ve been writing code professionally for about ten years,
-              starting on scrappy PHP monoliths and ending up on distributed systems
-              that move real money. Somewhere in the middle I learned Rust, gave up
-              on microservices as a default, and came around to the idea that{' '}
-              <em>boring technology is a feature</em>.
+              I&apos;m Kingsley — a frontend engineer with a background in mechanical
+              engineering who found his way into UI. I build design-centric React and
+              Next.js applications with a strong eye for the details that make
+              interfaces feel fast and intentional.
             </p>
             <p>
-              I care about latency, error budgets, and readable code. I don&apos;t care
-              about framework wars. I write things down before I build them. I like
-              working with small teams who trust each other.
+              I care about component architecture, accessible design, and the kind of
+              performance work users actually notice. I write things down before I build
+              them, keep codebases tidy, and mentor junior engineers when I get the
+              chance.
             </p>
             <p>
-              Outside work: mandolin, pickup basketball, and a slow pile of books
-              about cities.
+              Outside work: football, music, and a reading list that never gets shorter.
             </p>
           </div>
           <aside className="about-aside">
             <div className="aside-block">
               <div className="aside-label">// currently</div>
-              <div>Staff Engineer @ Oredata</div>
-              <div className="dim">Lagos / Remote · 2023 — now</div>
+              <div>Software Engineer @ Lohli Africa</div>
+              <div className="dim">Lagos / Remote · 2025 — now</div>
             </div>
             <div className="aside-block">
               <div className="aside-label">// previously</div>
-              <div>Senior SWE @ Ledgerline</div>
-              <div>Backend @ PaddleWorks</div>
-              <div>Full-stack @ freelance</div>
+              <div>Frontend Engineer @ Itex Integrated Services</div>
+              <div>Frontend Engineer @ Zedi Inc</div>
+              <div>Frontend Engineer @ Twoone Technologies</div>
             </div>
             <div className="aside-block">
               <div className="aside-label">// tools I reach for</div>
               <div className="chips">
-                {['TypeScript', 'Go', 'Rust', 'Postgres', 'ClickHouse', 'Redis', 'Kafka', 'Terraform', 'Linux', 'Neovim'].map(
+                {['React', 'Next.js', 'TypeScript', 'TailwindCSS', 'React Native', 'Angular', 'GraphQL', 'Docker', 'AWS', 'Vercel', 'Jest', 'Cypress'].map(
                   (x) => <span key={x} className="chip">{x}</span>
                 )}
               </div>

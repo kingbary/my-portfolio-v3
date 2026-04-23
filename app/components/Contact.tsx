@@ -46,8 +46,8 @@ export default function Contact() {
               </Link>
             </div>
             <div className="contact-line">
-              <span className="dim">signal&nbsp;→</span>
-              <Link href="#contact">on request</Link>
+              <span className="dim">linkedin&nbsp;→</span>
+              <Link href="https://linkedin.com/in/kingsleyakwa" target="_blank" rel='noopener noreferrer'>linkedin.com/in/kingsleyakwa</Link>
             </div>
             <div className="contact-line">
               <span className="dim">calendar→</span>

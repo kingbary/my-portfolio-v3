@@ -73,10 +73,10 @@ function HeroTerminal() {
             )}
             {step >= 2 && (
               <div className="term-out term-out-block">
-                <p>I build fast, resilient web systems — mostly TypeScript,</p>
-                <p>Go, and whatever pays rent. I like boring tools,</p>
-                <p>readable code, and shipping things that don&apos;t page me</p>
-                <p>at 3am.</p>
+                <p>I build design-centric React and Next.js apps —</p>
+                <p>TypeScript, component systems, and the UI details</p>
+                <p>that make products feel fast and intentional.</p>
+                <p>Five years in. Frontend through and through.</p>
               </div>
             )}
             {step >= 2 && (
@@ -119,7 +119,7 @@ function HeroTerminal() {
 }
 
 function HeroBig() {
-  const roles = ['software engineer', 'systems builder', 'problem solver', 'pragmatist'];
+  const roles = ['software engineer', 'frontend engineer', 'ui craftsman', 'design-minded dev'];
   const [i, setI] = React.useState(0);
 
   React.useEffect(() => {
@@ -147,7 +147,7 @@ function HeroBig() {
         </h1>
         <div className="big-footer">
           <div>
-            <span className="dim">currently</span> building ops tooling @ fintech
+            <span className="dim">currently</span> building ad platform @ Lohli Africa
           </div>
           <div>
             <span className="dim">scroll</span> ↓ for selected work
@@ -171,9 +171,9 @@ function HeroSplit() {
           reliable systems.
         </h1>
         <p className="split-sub">
-          I&apos;m Kingsley — a software engineer focused on infra, developer tooling,
-          and the unglamorous plumbing that makes products feel fast. Five years in,
-          still curious.
+          I&apos;m Kingsley — a software engineer focused on React, design systems,
+          and the UI details that make products feel fast and intentional. Five years
+          in, still curious.
         </p>
         <div className="split-ctas">
           <Link href="#work" className="btn-primary">
@@ -193,14 +193,14 @@ function HeroSplit() {
         <div className="stat-card">
           <div className="stat-label">// shipped</div>
           <div className="stat-big">47<span className="dim"> projects</span></div>
-          <div className="stat-sub">since 2016 · open source + client work</div>
+          <div className="stat-sub">since 2021 · open source + client work</div>
         </div>
         <div className="stat-card stat-muted">
           <div className="stat-label">// now</div>
           <div className="stat-now">
-            <div>→ rewriting billing pipeline in Go</div>
+            <div>→  building the frontend ecosystem for a banking app</div>
             <div>→ reading <em>Designing Data-Intensive Apps</em></div>
-            <div>→ learning mandolin (badly)</div>
+            <div>→ learning Spring Boot (badly)</div>
           </div>
         </div>
       </div>

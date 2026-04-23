@@ -1,5 +1,5 @@
 const items = [
-  'TypeScript', 'Go', 'Rust', 'Postgres', 'Kafka', 'ClickHouse',
+  'TypeScript', 'Java', 'Rust', 'Postgres', 'Kafka', 'ClickHouse',
   'Redis', 'Terraform', 'Neovim', 'Linux', 'gRPC', 'CRDT',
   'Event sourcing', 'Distributed systems', 'Developer tooling',
 ];
