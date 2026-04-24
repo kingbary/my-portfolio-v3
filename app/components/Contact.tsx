@@ -51,7 +51,9 @@ export default function Contact() {
             </div>
             <div className="contact-line">
               <span className="dim">calendar→</span>
-              <Link href="#contact">book a 20-min intro</Link>
+              <Link href="https://calendar.app.google/8KivMfzzJ65QJhE28" target="_blank" rel="noopener noreferrer">
+                book a 30-min intro
+              </Link>
             </div>
             <div className="booking">
               <div className="booking-label">// availability</div>
