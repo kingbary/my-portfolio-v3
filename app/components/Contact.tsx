@@ -22,7 +22,7 @@ export default function Contact() {
     <section className="contact" id="contact">
       <div className="shell">
         <SectionHeader
-          tag="06"
+          tag="07"
           cmd="./say-hello.sh"
           title="get in touch"
           sub="I reply within two working days. Promise."

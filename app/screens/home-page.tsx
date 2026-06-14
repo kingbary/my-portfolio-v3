@@ -12,6 +12,7 @@ import Work from '../components/Work';
 import About from '../components/About';
 import Services from '../components/Services';
 import Resume from '../components/Resume';
+import GithubContributions from '../components/GithubContributions';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import CmdK from '../components/CmdK';
@@ -119,6 +120,7 @@ export default function HomeScreen({ git }: { git: { branch: string; commitDate:
                 <About />
                 <Services />
                 <Resume />
+                <GithubContributions />
                 <Contact />
             </main>
 

@@ -31,6 +31,7 @@ export default function CmdK({ open, onClose, onOpen }: CmdKProps) {
     { l: 'go to — about',     a: () => nav('#about') },
     { l: 'go to — services',  a: () => nav('#services') },
     { l: 'go to — resume',    a: () => nav('#resume') },
+    { l: 'go to — activity',  a: () => nav('#contributions') },
     { l: 'go to — contact',   a: () => nav('#contact') },
     ...PROJECTS.map((p) => ({ l: `open — ${p.name}`, a: () => { onOpen(p); onClose(); } })),
     { l: 'copy email', a: () => navigator.clipboard?.writeText('kingsleyakwa@gmail.com') },

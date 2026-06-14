@@ -33,7 +33,8 @@ export default function Nav({ dark, setDark, onCmd }: NavProps) {
         <li><Link href="#about"><span className="dim">02/</span> about</Link></li>
         <li><Link href="#services"><span className="dim">03/</span> services</Link></li>
         <li><Link href="#resume"><span className="dim">04/</span> resume</Link></li>
-        <li><Link href="#contact"><span className="dim">05/</span> contact</Link></li>
+        <li><Link href="#contributions"><span className="dim">05/</span> activity</Link></li>
+        <li><Link href="#contact"><span className="dim">06/</span> contact</Link></li>
       </ul>
       <div className="nav-right">
         <button className="kbd-hint" onClick={onCmd} title="Command menu">
