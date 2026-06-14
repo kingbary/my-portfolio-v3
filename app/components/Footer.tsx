@@ -55,7 +55,7 @@ export default function Footer({ branch, commitDate, commitHash, repoUrl }: {
           </div>
           <div className="foot-col">
             <div className="foot-label">// elsewhere</div>
-            <Link href="https://github.com/kingsleyakwa" target="_blank" rel="noopener noreferrer">github</Link>
+            <Link href="https://github.com/kingbary" target="_blank" rel="noopener noreferrer">github</Link>
             <Link href="https://linkedin.com/in/kingsleyakwa" target="_blank" rel="noopener noreferrer">linkedin</Link>
           </div>
           <div className="foot-col">
