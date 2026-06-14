@@ -1276,7 +1276,6 @@ body.scanlines::after {
   display: inline-flex;
   gap: 8px;
   align-items: center;
-  border-bottom: 1px dashed var(--border-strong);
   padding-bottom: 2px;
 }
 .email-copy:hover {

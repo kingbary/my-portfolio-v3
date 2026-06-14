@@ -25,36 +25,40 @@ export default function Contact() {
           tag="07"
           cmd="./say-hello.sh"
           title="get in touch"
-          sub="I reply within two working days. Promise."
+          sub="I reply within 24 hours. Promise."
         />
         <div className="contact-grid">
           <div className="contact-left">
             <div className="contact-line">
               <span className="dim">email &nbsp;→</span>
-              <button className="email-copy" onClick={copy}>
-                {EMAIL}
-                <span className="copy-ic">
-                  {copied ? <IconCheck size={14} /> : <IconCopy size={14} />}
-                </span>
-                {copied && <span className="copied-toast">copied</span>}
-              </button>
+              <div className="email-copy">
+                <a href={`mailto:${EMAIL}`}>
+                  {EMAIL}
+                </a>
+                <button onClick={copy}>
+                  <span className="copy-ic">
+                    {copied ? <IconCheck size={14} /> : <IconCopy size={14} />}
+                  </span>
+                  {copied && <span className="copied-toast">copied</span>}
+                </button>
+              </div>
             </div>
-            <div className="contact-line">
+            {/* <div className="contact-line">
               <span className="dim">github&nbsp;→</span>
               <Link href="https://github.com/kingbary" target="_blank" rel="noopener noreferrer">
                 github.com/kingbary
               </Link>
-            </div>
+            </div> */}
             <div className="contact-line">
               <span className="dim">linkedin&nbsp;→</span>
               <Link href="https://linkedin.com/in/kingsleyakwa" target="_blank" rel='noopener noreferrer'>linkedin.com/in/kingsleyakwa</Link>
             </div>
-            <div className="contact-line">
+            {/* <div className="contact-line">
               <span className="dim">calendar→</span>
               <Link href="https://calendar.app.google/8KivMfzzJ65QJhE28" target="_blank" rel="noopener noreferrer">
                 book a 30-min intro
               </Link>
-            </div>
+            </div> */}
             <div className="booking">
               <div className="booking-label">// availability</div>
               <div className="booking-grid">
