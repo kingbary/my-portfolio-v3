@@ -11,11 +11,36 @@ export default function Contact() {
   const [copied, setCopied] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', msg: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
   const copy = () => {
     navigator.clipboard?.writeText(EMAIL);
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
+  };
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (sending) return;
+    setSending(true);
+    setError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Something went wrong.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -72,19 +97,13 @@ export default function Contact() {
               <div className="booking-foot dim">green = open · current week · Africa/Lagos</div>
             </div>
           </div>
-          <form
-            className="contact-form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
-          >
+          <form className="contact-form" onSubmit={submit}>
             {sent ? (
               <div className="sent-ok">
                 <div className="sent-icon"><IconCheck size={24} /></div>
                 <div className="sent-t">message received.</div>
                 <div className="sent-d">
-                  I&apos;ll get back to you at {form.email || 'your inbox'} within two working days.
+                  I&apos;ll get back to you at {form.email || 'your inbox'} within 24 hours.
                 </div>
               </div>
             ) : (
@@ -118,9 +137,10 @@ export default function Contact() {
                     required
                   />
                 </label>
-                <button type="submit" className="btn-primary">
-                  send message <IconArrow size={14} />
+                <button type="submit" className="btn-primary" disabled={sending}>
+                  {sending ? 'sending…' : <>send message <IconArrow size={14} /></>}
                 </button>
+                {error && <div className="form-error">{error}</div>}
                 <div className="form-foot dim">↵ submits · no spam, ever</div>
               </>
             )}
