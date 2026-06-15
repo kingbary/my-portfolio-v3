@@ -5,6 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FROM = process.env.CONTACT_FROM ?? "Portfolio <onboarding@resend.dev>";
 const TO = process.env.CONTACT_TO ?? "kingsleyakwa@gmail.com";
+const OWNER = process.env.CONTACT_OWNER_NAME ?? "Kingsley";
 
 const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
@@ -55,6 +56,7 @@ export async function POST(req: Request) {
   }
 
   try {
+    // Notify the site owner. This is the critical send — its failure fails the request.
     const { error } = await resend.emails.send({
       from: FROM,
       to: TO,
@@ -70,6 +72,30 @@ export async function POST(req: Request) {
         { error: "Could not send message." },
         { status: 502 },
       );
+    }
+
+    // Confirmation auto-reply to the sender. Best-effort: a failure here is logged
+    // but does not fail the request, since the owner has already been notified.
+    const { error: confirmError } = await resend.emails.send({
+      from: FROM,
+      to: email,
+      replyTo: TO,
+      subject: `Thanks for reaching out — I'll be in touch`,
+      text:
+        `Hi ${name},\n\n` +
+        `Thanks for your message — it landed safely and I'll get back to you within 24 hours.\n\n` +
+        `For your records, here's what you sent:\n\n${msg}\n\n` +
+        `— ${OWNER}`,
+      html:
+        `<p>Hi ${escapeHtml(name)},</p>` +
+        `<p>Thanks for your message — it landed safely and I'll get back to you within 24 hours.</p>` +
+        `<p>For your records, here's what you sent:</p>` +
+        `<blockquote style="white-space:pre-wrap;border-left:3px solid #ccc;margin:0;padding-left:12px;color:#555">${escapeHtml(msg)}</blockquote>` +
+        `<p>— ${escapeHtml(OWNER)}</p>`,
+    });
+
+    if (confirmError) {
+      console.error("Confirmation email error:", confirmError);
     }
 
     return NextResponse.json({ ok: true });
