@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Kingsley Akwa — Software Engineer',
     description: 'Building fast, resilient web systems.',
-    url: 'https://kingsleyakwa.tech',
+    url: 'https://kingsleyakwa.online',
     siteName: 'Kingsley Akwa',
     images: [
       {
-        url: "https://kingsleyakwa.tech/images/headshot.jpg",
+        url: "https://kingsleyakwa.online/images/headshot.jpg",
         width: 1200,
         height: 630,
         alt: "Kingsley Akwa's headshot",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kingsley Akwa — Software Engineer',
     description: 'Building fast, resilient web systems.',
-    images: ["https://kingsleyakwa.tech/images/headshot.jpg"],
+    images: ["https://kingsleyakwa.online/images/headshot.jpg"],
     site: "@kingsley_akwa",
   },
 };
