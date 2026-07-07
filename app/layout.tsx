@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import './globals.css';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -46,6 +47,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${jetbrainsMono.variable} ${spaceGrotesk.variable}`}>
+      <GoogleTagManager gtmId="GTM-KBJVNHNH" />
+      <GoogleAnalytics gaId="G-FT31LXY8R2" />
       <body suppressHydrationWarning>{children}</body>
     </html>
   );
