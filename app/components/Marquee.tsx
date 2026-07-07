@@ -1,7 +1,8 @@
 const items = [
-  'TypeScript', 'Java', 'Rust', 'Postgres', 'Kafka', 'ClickHouse',
-  'Redis', 'Terraform', 'Neovim', 'Linux', 'gRPC', 'CRDT',
-  'Event sourcing', 'Distributed systems', 'Developer tooling',
+  'Java', 'Spring Boot', 'React', 'Next.js', 'TypeScript', 'TailwindCSS', 'GraphQL', 'REST APIs',
+  'SSR', 'Code-splitting', 'Design systems', 'Component libraries',
+  'Fintech & banking UI', 'Payment integrations', 'Real-time dashboards',
+  'Performance audits', 'Figma-to-code',
 ];
 
 const row = [...items, ...items];
