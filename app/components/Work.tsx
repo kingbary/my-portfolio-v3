@@ -102,7 +102,7 @@ export default function Work({ cardStyle, onOpen }: WorkProps) {
           tag="02"
           cmd="ls -la ~/work"
           title="selected work"
-          sub="five projects, chosen for the lessons they taught me."
+          sub="Six projects, chosen for the lessons they taught me."
         />
         <div className={`work-grid style-${cardStyle}`}>
           {PROJECTS.map((p, i) => (

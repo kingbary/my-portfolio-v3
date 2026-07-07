@@ -1762,6 +1762,17 @@ body.scanlines::after {
   }
 }
 
+.cs-hero {
+  aspect-ratio: 16/9;
+  position: relative;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.cs-hero img {
+  object-fit: cover;
+  object-position: top;
+}
+
 .cs-hero-ph {
   aspect-ratio: 16/7;
   background: repeating-linear-gradient(

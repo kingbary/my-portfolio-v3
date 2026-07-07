@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect } from 'react';
-import { IconArrow, IconTerminal } from './Icons';
+import { IconArrow } from './Icons';
 import { type Project } from '../data/data';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface CaseStudyProps {
   project: Project | null;
@@ -46,9 +47,21 @@ export default function CaseStudy({ project: p, onClose }: CaseStudyProps) {
             <div><div className="dim">stack</div><div>{p.stack.join(' · ')}</div></div>
           </div>
 
-          <div className="cs-hero-ph" aria-hidden>
-            <span className="ph-label">// hero image · {p.name}</span>
-          </div>
+          {p.image ? (
+            <div className="cs-hero">
+              <Image
+                src={p.image}
+                alt={`${p.client} — product screenshot`}
+                fill
+                sizes="(max-width: 960px) 100vw, 960px"
+                priority
+              />
+            </div>
+          ) : (
+            <div className="cs-hero-ph" aria-hidden>
+              <span className="ph-label">// hero image · {p.name}</span>
+            </div>
+          )}
 
           <div className="cs-section">
             <div className="cs-h">// the problem</div>
@@ -64,50 +77,10 @@ export default function CaseStudy({ project: p, onClose }: CaseStudyProps) {
           <div className="cs-section">
             <div className="cs-h">// what I did</div>
             <ul className="cs-list">
-              <li>Wrote a design doc. Circulated it. Let it get torn apart.</li>
-              <li>Shipped a read-only shadow pipeline in parallel; compared outputs for six weeks.</li>
-              <li>Cut over service-by-service behind feature flags. Zero incidents.</li>
-              <li>Wrote the runbook I wish I&apos;d had when I joined.</li>
+              {p.did.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
-          </div>
-
-          <div className="cs-code">
-            <div className="code-head">
-              <IconTerminal size={13} /> excerpt · {p.name}/pipeline.go
-            </div>
-            <pre>{`func (p *Pipeline) Process(ctx context.Context, evt Event) error {
-  span, ctx := tracer.StartSpan(ctx, "pipeline.process")
-  defer span.End()
-
-  if err := p.store.Append(ctx, evt); err != nil {
-    return fmt.Errorf("append: %w", err)
-  }
-  return p.bus.Publish(ctx, evt)
-}`}</pre>
-          </div>
-
-          <div className="cs-metrics">
-            <div className="cs-m">
-              <div className="cs-m-big">{p.metric}</div>
-              <div className="cs-m-lab">{p.metricLabel}</div>
-            </div>
-            <div className="cs-m">
-              <div className="cs-m-big">0</div>
-              <div className="cs-m-lab">p1 incidents since launch</div>
-            </div>
-            <div className="cs-m">
-              <div className="cs-m-big">6mo</div>
-              <div className="cs-m-lab">end-to-end, four engineers</div>
-            </div>
-          </div>
-
-          <div className="cs-section">
-            <div className="cs-h">// what I&apos;d do differently</div>
-            <p>
-              I&apos;d invest in the shadow-compare tooling earlier. We built it as we went
-              and it would have paid for itself three times over if it had existed on
-              day one. The rest I&apos;d do the same.
-            </p>
           </div>
 
           <div className="cs-nav">
