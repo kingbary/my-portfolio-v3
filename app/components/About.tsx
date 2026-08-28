@@ -26,7 +26,8 @@ export default function About() {
           <aside className="about-aside">
             <div className="aside-block">
               <div className="aside-label">// currently</div>
-              <div>Software Engineer @ Lohli Africa</div>
+              <div>Senior Frontend Engineer @ Kids Microfinance Bank</div>
+              <div>Senior Frontend Engineer @ Lohli Africa</div>
               <div className="dim">Lagos / Remote · 2025 — now</div>
             </div>
             <div className="aside-block">
